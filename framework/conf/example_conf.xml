@@ -1,0 +1,13 @@
+<!-- 
+  Copy this file in ows-phpunit/framework/conf to use custom environement variables (optional).
+  - DOMAIN: replace DOMAIN by your testing base url (used by OWSeleniumTestCase setUp method).
+  - LOGIN
+  - PASSWORD
+-->
+<phpunit bootstrap="bootstrap.php">
+  <php>
+    <env name="DOMAIN" value="http://example.ows/"/>
+    <env name="LOGIN" value="mylogin"/>
+    <env name="PASSWORD" value="mypass"/>
+  </php>
+</phpunit>

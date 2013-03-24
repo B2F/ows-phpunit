@@ -1,0 +1,17 @@
+------------------------------------
+ows-php-selenium.xpi:
+------------------------------------
+
+This is a selenium ide (firefox plugin) format bundle allowing you to create custom PHP test classes
+and methods, it uses the ows-phpunit framework by default. 
+
+* OWS (PHPUnit): Generates test classes extending OWSeleniumTestCase (this is a configurable option).
+* OWS (PHPUnit hardcoded url): With this format, test URLs are defined by an environement variable
+named "DOMAIN" inside a phpunit .xml configuration file. See the ows_phpunit/conf/example_conf.xml.
+
+source code: git clone -b ows-php-formatter src/content/formats/php-ows-selenium.js
+
+github fork: https://github.com/B2F/PHP-Formatter
+original github project: https://github.com/brokenthumbs
+------------------------------------
+------------------------------------

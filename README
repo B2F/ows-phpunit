@@ -1,0 +1,14 @@
+This is a minimal framework meant to be used with selenium ide.
+It provides AJAX support in your selenium test cases as well as
+an easy way to setup multiple domains in a single selenium ide
+generated test Class.
+
+https://github.com/B2F/ows-phpunit/wiki
+
+To understand how to use it, please read the following:
+example_phpunit.sh
+framework/plugin/README
+framework/conf/example_conf.xml
+
+@TODO: 
+Secure and improve login/password environement variables and integration

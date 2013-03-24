@@ -1,0 +1,2 @@
+<!-- Use this file to launch some OWseleniumTestCase directly with phpunit myTest{Case|Suite} -->
+<phpunit bootstrap="framework/conf/bootstrap.php"></phpunit>
