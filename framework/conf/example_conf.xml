@@ -1,12 +1,16 @@
 <!-- 
   Copy this file in ows-phpunit/framework/conf to use custom environement variables (optional).
   - DOMAIN: replace DOMAIN by your testing base url (used by OWSeleniumTestCase setUp method).
+  - AJAX_WAITING_SECONDS: the number of seconds passed to sleep() between unsuccessful selenium test clicks.
+  - AJAX_WAITING_COUNT: the number of time the click method is retried if unsuccessful.
   - LOGIN
   - PASSWORD
 -->
 <phpunit bootstrap="bootstrap.php">
   <php>
     <env name="DOMAIN" value="http://example.ows/"/>
+    <env name="AJAX_WAITING_SECONDS" value="1" />
+    <env name="AJAX_WAITING_COUNT" value="30" />
     <env name="LOGIN" value="mylogin"/>
     <env name="PASSWORD" value="mypass"/>
   </php>

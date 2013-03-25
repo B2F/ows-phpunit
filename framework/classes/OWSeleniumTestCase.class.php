@@ -8,6 +8,8 @@ class OWSeleniumTestCase extends PHPUnit_Extensions_SeleniumTestCase {
   protected $domain;
   protected $login;
   protected $password;
+  protected $ajaxWaitingCount;
+  protected $ajaxWaitingSeconds;
 
   /**
    * Initialize the test class with arguments and environement variables 
@@ -20,6 +22,18 @@ class OWSeleniumTestCase extends PHPUnit_Extensions_SeleniumTestCase {
     $this->domain = getenv('DOMAIN');
     $this->login = getenv('LOGIN');
     $this->password = getenv('PASSWORD');
+    if (!getenv('AJAX_WAITING_COUNT')) {
+      $this->ajaxWaitingCount = OWS_AJAX_SELENIUM_TEST_CASE_WAITING_COUNT;
+    }
+    else {
+      $this->ajaxWaitingCount = getenv('AJAX_WAITING_COUNT');
+    }
+    if (!getenv('AJAX_WAITING_SECONDS')) {
+      $this->ajaxWaitingSeconds = OWS_AJAX_SELENIUM_TEST_CASE_WAITING_SECONDS;
+    }
+    else {
+      $this->ajaxWaitingSeconds = getenv('AJAX_WAITING_SECONDS');
+    }
   }
 
   protected function setUp()
@@ -53,14 +67,14 @@ class OWSeleniumTestCase extends PHPUnit_Extensions_SeleniumTestCase {
  
     $element_present = FALSE;
 
-    for ($i = 0 ; $i < OWS_AJAX_SELENIUM_TEST_CASE_WAITING_COUNT ; $i++) {
+    for ($i = 0 ; $i < $this->ajaxWaitingCount ; $i++) {
       if ($this->isElementPresent($element)) {
         parent::click($element);
         $element_present = TRUE;
         break;
       }
       else {
-        sleep(OWS_AJAX_SELENIUM_TEST_CASE_WAITING_SECONDS);
+        sleep($this->ajaxWaitingSeconds);
       }
     }
     if(!$element_present) {
